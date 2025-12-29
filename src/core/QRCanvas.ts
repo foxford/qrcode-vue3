@@ -85,7 +85,7 @@ export default class QRCanvas {
       await this.loadImage();
       if (!this._image) return;
       const { imageOptions, qrOptions } = this._options;
-      const coverLevel = imageOptions.imageSize * errorCorrectionPercents[qrOptions.errorCorrectionLevel];
+      const coverLevel = imageOptions.imageSize * (errorCorrectionPercents[qrOptions.errorCorrectionLevel] ?? 0);
       const maxHiddenDots = Math.floor(coverLevel * count * count);
 
       drawImageSize = calculateImageSize({
@@ -252,6 +252,15 @@ export default class QRCanvas {
       [1, 0, Math.PI / 2],
       [0, 1, -Math.PI / 2]
     ].forEach(([column, row, rotation]) => {
+
+      if (
+          column === undefined
+          || row === undefined
+          || rotation === undefined
+      ) {
+          return
+      }
+
       if (filter && !filter(column, row)) {
         return;
       }
