@@ -279,7 +279,7 @@ export default class QRCanvas {
         canvasContext.beginPath();
 
         for (let i = 0; i < squareMask.length; i++) {
-          for (let j = 0; j < squareMask[i].length; j++) {
+          for (let j = 0; j < (squareMask[i]?.length ?? 0); j++) {
             if (!squareMask[i]?.[j]) {
               continue;
             }
@@ -327,7 +327,7 @@ export default class QRCanvas {
         canvasContext.beginPath();
 
         for (let i = 0; i < dotMask.length; i++) {
-          for (let j = 0; j < dotMask[i].length; j++) {
+          for (let j = 0; j < (dotMask[i]?.length ?? 0); j++) {
             if (!dotMask[i]?.[j]) {
               continue;
             }

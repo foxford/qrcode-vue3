@@ -90,9 +90,9 @@ const defaultOptions: RequiredOptions = {
   data: "",
   margin: 0,
   qrOptions: {
-    typeNumber: qrTypes[0],
+    typeNumber: qrTypes[0] ?? 0,
     mode: undefined,
-    errorCorrectionLevel: errorCorrectionLevels.Q
+    errorCorrectionLevel: errorCorrectionLevels.Q ?? "L"
   },
   imageOptions: {
     hideBackgroundDots: true,
