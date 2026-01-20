@@ -1,12 +1,12 @@
-import type { ErrorCorrectionLevel } from "../types";
+import type { ErrorCorrectionLevel } from '@/types'
 
 interface ErrorCorrectionLevels {
-  [key: string]: ErrorCorrectionLevel;
+  [key: string]: ErrorCorrectionLevel
 }
 
-export default {
-  L: "L",
-  M: "M",
-  Q: "Q",
-  H: "H"
-} as ErrorCorrectionLevels;
+export const errorCorrectionLevels = {
+  L: 'L',
+  M: 'M',
+  Q: 'Q',
+  H: 'H',
+} as ErrorCorrectionLevels

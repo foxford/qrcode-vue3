@@ -1,32 +1,24 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
-    "module": "ESNext",
     "target": "ESNext",
-    "allowJs": true,
-    "moduleResolution": "node",
-    "declaration": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "noImplicitAny": true,
-    "noImplicitThis": false,
-    "alwaysStrict": true,
-    "strictNullChecks": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "esModuleInterop": true,
-    "noEmit": true,
-    "isolatedModules": false,
-    "resolveJsonModule": true,
-    "useDefineForClassFields": true,
     "jsx": "preserve",
-    "outDir": "./dist/",
-    "declarationDir": "dist",
-    "baseUrl": ".",
+    "jsxFactory": "h",
+    "jsxImportSource": "vue",
+    "lib": [
+      "ESNext",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "baseUrl": "./",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "paths": {
       "@/*": ["./src/*"]
-    }
-  },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+    },
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  }
 }

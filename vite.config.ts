@@ -1,43 +1,36 @@
-import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
-import * as path from "path";
-import typescript2 from "rollup-plugin-typescript2";
-import dts from "vite-plugin-dts";
+import { resolve } from 'node:path'
+import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
-    dts({
-      insertTypesEntry: true
-    }),
-    typescript2({
-      check: false,
-      include: ["src/**/*.vue"],
-      tsconfigOverride: {
-        compilerOptions: {
-          outDir: "dist",
-          sourceMap: true,
-          declaration: true,
-          declarationMap: true
-        }
-      },
-      exclude: ["vite.config.ts"]
-    })
+    dts({ rollupTypes: true }),
   ],
   build: {
-    cssCodeSplit: true,
     lib: {
-      // Could also be a dictionary or array of multiple entry points
-      entry: "src/index.ts",
-      name: "QRCodeVue3",
-      formats: ["es", "cjs", "umd"],
-      fileName: (format) => `index.${format}.js`
-    }
+      name: 'QRCodeVue3',
+      entry: resolve(__dirname, './src/index.ts'),
+      fileName: format => `qr-code-vue3.${format}.js`,
+    },
+    emptyOutDir: true,
+    rollupOptions: {
+      external: [
+        'vue',
+      ],
+      output: {
+        exports: 'named',
+        globals: {
+          vue: 'Vue',
+        },
+      },
+    },
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src")
-    }
-  }
-});
+      '@': resolve(__dirname, 'src'),
+    },
+  },
+})

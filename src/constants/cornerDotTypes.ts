@@ -1,6 +1,6 @@
-import type { CornerDotTypes } from "../types";
+import type { CornerDotTypes } from '@/types'
 
-export default {
-  dot: "dot",
-  square: "square"
-} as CornerDotTypes;
+export const cornerDotTypes = {
+  dot: 'dot',
+  square: 'square',
+} as CornerDotTypes

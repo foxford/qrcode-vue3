@@ -1,10 +1,10 @@
 interface ErrorCorrectionPercents {
-  [key: string]: number;
+  [key: string]: number
 }
 
-export default {
+export const errorCorrectionPercents = {
   L: 0.07,
   M: 0.15,
   Q: 0.25,
-  H: 0.3
-} as ErrorCorrectionPercents;
+  H: 0.3,
+} as ErrorCorrectionPercents
